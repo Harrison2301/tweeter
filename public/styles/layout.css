@@ -7,8 +7,8 @@ html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
-  box-sizing: inherit;
 }
+main.container{width: 450px;margin: 0 auto;background: white;padding-top: 50px;padding-bottom: 50px;}
 
 /*
  * Global layout stuff
@@ -16,10 +16,53 @@ html {
 
 body {
   margin: 0;
-  color: #244751;
+  color: #090d0e;
   background-color: #eee;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ article{
+
+   margin: auto; 
+   border: rgb(131, 131, 131) solid 1px;
+   border-radius: 10px;
+   width: 400px; 
+   margin-top: 30px;
+   opacity: 0.5;
+
+ }
+ article:hover{
+   opacity: 0.9;
+   cursor: pointer;
+   transition: 1s all;
+   border: black solid 1px;
+ }
+ article header {
+   display: flex;
+  border-radius: 10px 10px 0px 0px;
+ justify-content: space-between;
+ padding: 10px;
+ background-color: rgb(236, 235, 235);
+ }
+ article header img {
+  width: 80px;
+  height: 80px;
+  background-color: yellow;
+  border-radius: 10px;
+  border: none;
+ }
+
+article footer {
+  border-top: 1px grey solid;
+
+}
+
+article p {
+  padding: 10px;
+}
+article header h2{
+  color:#244751;
+}
