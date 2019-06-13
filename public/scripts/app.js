@@ -1,7 +1,31 @@
 
 // Test / driver code (temporary). Eventually will get this from the server.
 $(document).ready(function() {
-    renderTweets(data);
+
+    function loadTweets(){
+        $.ajax({method:"GET",url:"/tweets"}).done(function(result){
+            renderTweets(result)
+        })
+    }
+    loadTweets()
+
+    $("form").on("submit", function(event){
+        event.preventDefault();
+        const content = $(event.target).find("textarea").val();
+
+    $.ajax({
+        method:"POST",
+        url: "/tweets",
+        data: {
+            text: content
+        }
+    }).done(function(){
+        loadTweets()
+    })
+   
+    
+})
+renderTweets(data);
 })
 const data = [
     {
@@ -49,6 +73,8 @@ const data = [
       "created_at": 1461113796368
     }
   ];
+
+
 function createTweetElement(Object){
 let profileImgLink = Object.user.avatars.small;
 let nameHeader = Object.user.name;
@@ -68,8 +94,9 @@ header.append(img).append(h2).append(span)
 article.append(header).append(footer).append(p)
 return article
 }
+//rendering tweets 
 function renderTweets(tweets) {
     for(let i = 0; i < tweets.length; i++){
-        $('.tweets-container').append(createTweetElement(tweets[i]))  
+        $('.tweets-container').prepend(createTweetElement(tweets[i]))  
     }
 }
