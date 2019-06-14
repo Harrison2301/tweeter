@@ -1,7 +1,9 @@
 
 // Test / driver code (temporary). Eventually will get this from the server.
 $(document).ready(function() {
-
+ 
+  
+    //renders tweets to page 
     function loadTweets(){
         $.ajax({method:"GET",url:"/tweets"}).done(function(result){
             renderTweets(result)
@@ -9,10 +11,20 @@ $(document).ready(function() {
     }
     loadTweets()
 
+ //submit button + charactor validation
     $("form").on("submit", function(event){
         event.preventDefault();
         const content = $(event.target).find("textarea").val();
+        if(content === ""){
+         $("#error-message").text("Form is empty!") 
+         return;
+         
+        } else if(content.length >= 140){
+          $("#error-message").text("Form must be under 140 charactors!");
+          return;
+        } else {
 
+        
     $.ajax({
         method:"POST",
         url: "/tweets",
@@ -22,9 +34,10 @@ $(document).ready(function() {
     }).done(function(){
         loadTweets()
     })
-   
-    
+  
+        }  
 })
+  
 renderTweets(data);
 })
 const data = [
@@ -94,7 +107,7 @@ header.append(img).append(h2).append(span)
 article.append(header).append(footer).append(p)
 return article
 }
-//rendering tweets 
+//rendering tweet loop
 function renderTweets(tweets) {
     for(let i = 0; i < tweets.length; i++){
         $('.tweets-container').prepend(createTweetElement(tweets[i]))  
