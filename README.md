@@ -1,6 +1,7 @@
 # Tweeter Project
 
 ## Final Product
+docs/tweet1.png
 
 ## Dependencies
 - Body-parser
