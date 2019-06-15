@@ -7,33 +7,23 @@ const simulateDelay = require("./util/simulate-delay");
 module.exports = function makeDataHelpers(db) {
   return {
 
-    // Saves a tweet to `db`
+    // Saves a tweet to database
     saveTweet: function(newTweet, callback) {
-      // simulateDelay(() => {
-      //   db.tweets.push(newTweet);
-      //   callback(null, true);
-      // });
       db.collection("tweets")
         .insertOne(newTweet)
         .then(() =>   callback(null, newTweet))
-        .catch(error => callback(error))
+        .catch(error => callback(error));
     },
 
-    // Get all tweets in `db`, sorted by newest first
+    // Get all tweets in sends to callback
     getTweets: function(callback) {
-      
-
-      db.collection("tweets")
+       db.collection("tweets")
 
         .find()
         .toArray()
         
         .then(tweets => callback(null, tweets))
-        .catch(error => callback(error))
-      
-      
-      // grab tweets and send it to callback-> im in tweets in my mongo..
-      
+        .catch(error => callback(error));
     } 
   };
-}
+};

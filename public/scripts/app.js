@@ -37,11 +37,6 @@ $(document).ready(function() {
           return;
         } else {
           getTweets().done(fetchTweet)
-          
-        
-    
-  
-  
         }  
 })
   
