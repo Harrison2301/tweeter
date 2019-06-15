@@ -13,6 +13,19 @@ $(document).ready(function() {
 
  //submit button + charactor validation
     $("form").on("submit", function(event){
+      function getTweets(){
+        return $.ajax({
+          method:"POST",
+          url: "/tweets",
+          data: {
+              text: content
+          }
+      })
+    }
+      function fetchTweet(){
+        loadTweets()
+      }
+      
         event.preventDefault();
         const content = $(event.target).find("textarea").val();
         if(content === ""){
@@ -23,17 +36,11 @@ $(document).ready(function() {
           $("#error-message").text("Form must be under 140 charactors!");
           return;
         } else {
-
+          getTweets().done(fetchTweet)
+          
         
-    $.ajax({
-        method:"POST",
-        url: "/tweets",
-        data: {
-            text: content
-        }
-    }).done(function(){
-        loadTweets()
-    })
+    
+  
   
         }  
 })
