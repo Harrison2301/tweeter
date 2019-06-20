@@ -94,14 +94,16 @@ function createTweetElement(Object) {
   const createdDate = new Date(Object.created_at);
   const article = $('<article>');
   const header = $('<header>');
+  const userInfo = $('<div>').addClass("userInfo")
   const img = $('<img>').attr('src', profileImgLink);
-  const h2 = $('<h2>').text(nameHeader);
+  const h2 = $('<h2>').text (nameHeader).addClass();
   const span = $('<span>').text(nameHandle);
   const p = $('<p>').text(createdDate);
   const footer = $('<footer>');
   const footerText = $('<p>').text(messageContent);
+  userInfo.append(img).append(h2)
   footer.append(footerText);
-  header.append(img).append(h2).append(span);
+  header.append(userInfo).append(span);
   article.append(header).append(footer).append(p);
   return article;
 }

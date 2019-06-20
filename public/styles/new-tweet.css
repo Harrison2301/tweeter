@@ -8,10 +8,9 @@ section.new-tweet {
     width: 375px;
     margin: auto;
 }
+
 h2{
-    margin-left: 0px;
-    margin-top: 0px;
-    color: #244751;
+    padding-left: .5em;
 }
 
 textarea{
