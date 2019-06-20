@@ -1,4 +1,3 @@
-//$(".tweet-container").empty();
 // Test / driver code (temporary). Eventually will get this from the server.
 $(document).ready(() => {
   // renders tweets to page
@@ -105,9 +104,12 @@ function createTweetElement(Object) {
   const span = $('<span>').text(nameHandle);
   const p = $('<p>').text(createdDate);
   const footer = $('<footer>');
+  let like = $("<img>").attr("src", "/images/heart.png").addClass("like");
+  let share = $("<img>").attr("src", "/images/retweet.png").addClass("share");
+  let flag = $("<img>").attr("src", "/images/flag.png").addClass("flag");
   const footerText = $('<p>').text(messageContent);
   userInfo.append(img).append(h2)
-  footer.append(footerText);
+  footer.append(footerText).append(like).append(share).append(flag);
   header.append(userInfo).append(span);
   article.append(header).append(footer).append(p);
   return article;
@@ -118,3 +120,9 @@ function renderTweets(tweets) {
     $('.tweets-container').prepend(createTweetElement(tweets[i]));
   }
 }
+
+
+
+//$('textarea').val().empty();
+
+

@@ -34,3 +34,15 @@ textarea{
 #error-message{
     color: red
 }
+
+footer img{
+    height: 5%;
+    width: 5%;
+    float: right;
+    margin-right: .6em;
+    opacity: 0;
+}
+article:hover footer img{
+    transition: 1s all;
+    opacity: 1;
+}
