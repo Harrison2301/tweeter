@@ -1,3 +1,4 @@
+//$(".tweet-container").empty();
 // Test / driver code (temporary). Eventually will get this from the server.
 $(document).ready(() => {
   // renders tweets to page
@@ -32,10 +33,14 @@ $(document).ready(() => {
       $('#error-message').text('Form must be under 140 charactors!');
       return;
     }
+    $('#error-message').hide();
     getTweets().done(fetchTweet);
+
   });
 
   renderTweets(data);
+  
+  
 });
 const data = [
   {

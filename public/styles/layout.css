@@ -60,6 +60,7 @@ article footer {
 article p {
   padding: 10px;
   overflow-wrap: break-word;
+  margin-bottom: 0;
 }
 article header h2{
   color:#244751;
