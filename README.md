@@ -2,6 +2,8 @@
 
 ## Final Product
 - Tweeter is a single page app that allows users to post tweets (under 140 charactors) onto the home page!
+
+
 !["Screenshot of my tweeter app 1"](https://github.com/Harrison2301/tweeter/blob/master/docs/tweet1.png?raw=true)
 !["Screenshot of my tweeter app 2"](https://github.com/Harrison2301/tweeter/blob/master/docs/tweet2.png?raw=true)
 ## Dependencies
