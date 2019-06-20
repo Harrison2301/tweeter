@@ -33,6 +33,7 @@ $(document).ready(() => {
       return;
     }
     $('#error-message').hide();
+    $('textarea').val("")
     getTweets().done(fetchTweet);
 
   });
@@ -123,6 +124,5 @@ function renderTweets(tweets) {
 
 
 
-//$('textarea').val().empty();
 
 
