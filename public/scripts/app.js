@@ -91,7 +91,7 @@ function createTweetElement(Object) {
   const nameHeader = Object.user.name;
   const nameHandle = Object.user.handle;
   const messageContent = Object.content.text;
-  const createdDate = new Date(Object.created_at);
+  const createdDate = new Date(Object.created_at).toISOString().slice(0, 10);
   const article = $('<article>');
   const header = $('<header>');
   const userInfo = $('<div>').addClass("userInfo")
