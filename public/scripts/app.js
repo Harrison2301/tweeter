@@ -11,6 +11,7 @@ $(document).ready(() => {
   // submit button + charactor validation
   $('form').on('submit', (event) => {
     function getTweets() {
+      $('textarea').val("")
       return $.ajax({
         method: 'POST',
         url: '/tweets',
@@ -33,7 +34,6 @@ $(document).ready(() => {
       return;
     }
     $('#error-message').hide();
-    $('textarea').val("")
     getTweets().done(fetchTweet);
 
   });
@@ -96,7 +96,7 @@ function createTweetElement(Object) {
   const nameHeader = Object.user.name;
   const nameHandle = Object.user.handle;
   const messageContent = Object.content.text;
-  const createdDate = new Date(Object.created_at).toISOString().slice(0, 10);
+  const createdDate = moment(Object.created_at).startOf('hour').fromNow();
   const article = $('<article>');
   const header = $('<header>');
   const userInfo = $('<div>').addClass("userInfo")

@@ -9,6 +9,7 @@
 - Express 
 - md5
 - Mongodb
+- moment
 
 ## Getting Started
 - Install all dependencies (using the "npm install" command).
