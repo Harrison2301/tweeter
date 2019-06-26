@@ -10,8 +10,8 @@ $(document).ready(() => {
 
   // submit button + charactor validation
   $('form').on('submit', (event) => {
+    
     function getTweets() {
-      $('textarea').val("")
       return $.ajax({
         method: 'POST',
         url: '/tweets',
@@ -26,17 +26,22 @@ $(document).ready(() => {
 
     event.preventDefault();
     const content = $(event.target).find('textarea').val();
-    if (content === '') {
-      $('#error-message').text('Form is empty!');
+    if(content === ""){
+      $("#error-message").text("Form is empty!") 
       return;
-    } else if (content.length >= 140) {
-      $('#error-message').text('Form must be under 140 charactors!');
-      return;
-    }
+
+     } else if(content.length >= 140){
+       $("#error-message").text("Form must be under 140 charactors!");
+       return;
+       
+     } else {
     $('#error-message').hide();
     getTweets().done(fetchTweet);
-
+    $('textarea').val("")
+    $('.tweets-container').empty()
+     }
   });
+  
 
   renderTweets(data);
   
