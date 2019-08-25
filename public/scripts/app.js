@@ -10,7 +10,7 @@ $(document).ready(() => {
 
   // submit button + charactor validation
   $('form').on('submit', (event) => {
-    
+
     function getTweets() {
       return $.ajax({
         method: 'POST',
@@ -26,26 +26,26 @@ $(document).ready(() => {
 
     event.preventDefault();
     const content = $(event.target).find('textarea').val();
-    if(content === ""){
-      $("#error-message").text("Form is empty!") 
+    if (content === "") {
+      $("#error-message").text("Form is empty!")
       return;
 
-     } else if(content.length >= 140){
-       $("#error-message").text("Form must be under 140 charactors!");
-       return;
-       
-     } else {
-    $('#error-message').hide();
-    getTweets().done(fetchTweet);
-    $('textarea').val("")
-    $('.tweets-container').empty()
-     }
+    } else if (content.length >= 140) {
+      $("#error-message").text("Form must be under 140 charactors!");
+      return;
+
+    } else {
+      $('#error-message').hide();
+      getTweets().done(fetchTweet);
+      $('textarea').val("")
+      $('.tweets-container').empty()
+    }
   });
-  
+
 
   renderTweets(data);
-  
-  
+
+
 });
 const data = [
   {
@@ -106,7 +106,7 @@ function createTweetElement(Object) {
   const header = $('<header>');
   const userInfo = $('<div>').addClass("userInfo")
   const img = $('<img>').attr('src', profileImgLink);
-  const h2 = $('<h2>').text (nameHeader).addClass();
+  const h2 = $('<h2>').text(nameHeader).addClass();
   const span = $('<span>').text(nameHandle);
   const p = $('<p>').text(createdDate);
   const footer = $('<footer>');
@@ -126,8 +126,6 @@ function renderTweets(tweets) {
     $('.tweets-container').prepend(createTweetElement(tweets[i]));
   }
 }
-
-
 
 
 
